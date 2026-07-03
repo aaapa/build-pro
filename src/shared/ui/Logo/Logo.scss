@@ -1,0 +1,48 @@
+.logo {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: ptrm(8);
+  color: var(--color-light);
+  @include trns;
+
+  @include hover {
+    color: var(--color-main);
+  }
+
+  &:active {
+    scale: var(--scale);
+  }
+
+  &--dark {
+    color: var(--color-text);
+  }
+
+  &__mark {
+    flex: 0 0 auto;
+    color: var(--color-main);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  &__name {
+    color: inherit;
+    font-size: ptrm(17);
+    font-weight: bold;
+  }
+
+  &__caption {
+    margin-block-start: ptrm(3);
+    color: color-mix(in srgb, currentColor 76%, transparent);
+    font-size: ptrm(9);
+  }
+}

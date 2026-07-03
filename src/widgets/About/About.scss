@@ -1,0 +1,134 @@
+.about {
+  padding-block: ptrm(88) ptrm(66);
+  scroll-margin-block-start: var(--section-scroll-top);
+  background-color: var(--color-section-background);
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(560);
+
+  @include tablet {
+    contain-intrinsic-size: auto ptrm(980);
+  }
+
+  @include mobile {
+    padding-block: ptrm(56);
+    contain-intrinsic-size: auto ptrm(1100);
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(ptrm(480), 1.45fr);
+    align-items: center;
+    gap: ptrm(74);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: ptrm(42);
+    }
+  }
+
+  &__content {
+    @include tablet {
+      max-width: ptrm(680);
+    }
+  }
+
+  &__title {
+    margin-block-start: ptrm(12);
+    max-width: ptrm(390);
+  }
+
+  &__description {
+    margin-block-start: ptrm(20);
+    max-width: ptrm(420);
+    color: var(--color-muted);
+    font-size: ptrm(16);
+    line-height: 1.58;
+  }
+
+  &__stats {
+    margin-block: ptrm(34);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: ptrm(22);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: ptrm(16);
+    }
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: ptrm(4);
+  }
+
+  &__stat-value {
+    color: var(--color-text);
+    font-size: ptrm(32);
+    line-height: 1;
+  }
+
+  &__stat-label {
+    color: var(--color-muted);
+    font-size: ptrm(13);
+  }
+
+  &__link {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+  }
+
+  &__video {
+    min-height: ptrm(400);
+    position: relative;
+    overflow: hidden;
+    border-radius: ptrm(6);
+    background-color: var(--color-dark);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+  }
+
+  &__video-button {
+    padding: ptrm(8) ptrm(16) ptrm(8) ptrm(8);
+    display: inline-flex;
+    align-items: center;
+    gap: ptrm(12);
+    position: absolute;
+    left: 50%;
+    bottom: ptrm(36);
+    color: var(--color-light);
+    font-size: ptrm(15);
+    font-weight: bold;
+    border-radius: ptrm(999);
+    background-color: #000;
+    transform: translateX(-50%) translateY(0rem);
+    transition: transform 0.18s ease;
+    will-change: transform;
+
+    @include mobile {
+      width: calc(100% - ptrm(32));
+      justify-content: center;
+      bottom: ptrm(18);
+      font-size: ptrm(14);
+    }
+  }
+
+  &__video-icon {
+    @include square(ptrm(52));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    border-radius: 50%;
+    background-color: var(--color-light);
+  }
+}

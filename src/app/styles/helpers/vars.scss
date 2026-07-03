@@ -1,0 +1,33 @@
+@use "functions" as *;
+@use "media" as *;
+
+:root {
+  --opacity: 0.5;
+  --scale: 0.9;
+
+  --color-gold: #F6C238;
+  --color-gold-dark: #D9A52A;
+  --color-dark: #101820;
+  --color-dark-alt: #16212B;
+  --color-text: #11151B;
+  --color-muted: #68717C;
+  --color-line: #DADDE0;
+  --color-main: var(--color-gold);
+  --color-secondary: var(--color-dark);
+  --color-light: white;
+  --color-page: #F8F8F5;
+  --color-section-background: #FFFFFF;
+
+  --section-scroll-top: #{ptrm(200)};
+
+  @include tablet {
+    --section-scroll-top: #{ptrm(120)};
+  }
+
+  --container-width: #{ptrm(1400)};
+  --container-padding: #{ptrm(24)};
+
+  @include mobile {
+    --container-padding: #{ptrm(16)};
+  }
+}

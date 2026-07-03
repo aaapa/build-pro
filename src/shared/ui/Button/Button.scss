@@ -1,0 +1,59 @@
+.button {
+  min-height: ptrm(48);
+  padding-inline: ptrm(28);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: ptrm(8);
+  color: var(--color-text);
+  font-size: ptrm(18);
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  border: ptrm(1) solid transparent;
+  user-select: none;
+  @include trns;
+
+  &:active {
+    scale: var(--scale);
+  }
+
+  &--main {
+    color: var(--color-text);
+    background-color: var(--color-main);
+
+    @include hover {
+      background-color: #FFD45B;
+    }
+  }
+
+  &--dark {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+
+    @include hover {
+      background-color: #253140;
+    }
+  }
+
+  &--outline-light {
+    color: var(--color-light);
+    border-color: rgba(255, 255, 255, 0.72);
+
+    @include hover {
+      color: var(--color-text);
+      background-color: var(--color-light);
+    }
+  }
+
+  &--outline-dark {
+    color: var(--color-text);
+    border-color: var(--color-text);
+
+    @include hover {
+      color: var(--color-light);
+      background-color: var(--color-text);
+    }
+  }
+}

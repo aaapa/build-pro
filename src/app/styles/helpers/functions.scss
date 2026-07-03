@@ -1,0 +1,33 @@
+@use "sass:math";
+
+@function ptrm($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error "Р СњР Вµ Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р в„–РЎвЂљР Вµ Р ВµР Т‘Р С‘Р Р…Р С‘РЎвЂ РЎвЂ№ Р С‘Р В·Р СР ВµРЎР‚Р ВµР Р…Р С‘РЎРЏ Р С—РЎР‚Р С‘ РЎР‚Р В°Р В±Р С•РЎвЂљР Вµ РЎРѓ РЎвЂћРЎС“Р Р…Р С”РЎвЂ Р С‘Р ВµР в„– rem()! Р СџР ВµРЎР‚Р ВµР Т‘Р В°Р Р†Р В°Р в„–РЎвЂљР Вµ Р В°РЎР‚Р С–РЎС“Р СР ВµР Р…РЎвЂљР С•Р С РЎвЂљР С•Р В»РЎРЉР С”Р С• РЎвЂЎР С‘РЎРѓР В»Р В°.";
+  }
+}
+
+@function fluid($max: 48, $min: 16) {
+  $maxViewportWidth: 1920;
+  $minViewportWidth: 390;
+
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  @return clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem}
+  );
+}
+
+@function alpha($color, $opacity) {
+  $opacity-percent: $opacity * 100%;
+  @return color-mix(in srgb, #{$color} #{$opacity-percent}, transparent);
+}

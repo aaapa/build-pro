@@ -1,0 +1,121 @@
+.intro {
+  padding-block: ptrm(68) ptrm(38);
+  scroll-margin-block-start: var(--section-scroll-top);
+  background-color: var(--color-section-background);
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(560);
+
+  @include tablet {
+    contain-intrinsic-size: auto ptrm(960);
+  }
+
+  @include mobile {
+    padding-block: ptrm(52) ptrm(34);
+    contain-intrinsic-size: auto ptrm(1180);
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.96fr) minmax(ptrm(420), 1.18fr) minmax(ptrm(180), 0.58fr);
+    align-items: center;
+    gap: ptrm(54);
+
+    @include tablet {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+      gap: ptrm(36);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: ptrm(28);
+    }
+  }
+
+  &__title {
+    max-width: ptrm(430);
+    margin-block-start: ptrm(12);
+  }
+
+  &__text {
+    margin-block-start: ptrm(22);
+    display: grid;
+    gap: ptrm(18);
+    color: var(--color-muted);
+    font-size: ptrm(15);
+    line-height: 1.65;
+  }
+
+  &__button {
+    width: fit-content;
+    margin-block-start: ptrm(28);
+    display: flex;
+    align-items: center;
+  }
+
+  &__image-wrapper {
+    min-height: ptrm(330);
+    overflow: hidden;
+    border-radius: ptrm(6);
+    background-color: #DCE2E6;
+
+    @include tablet {
+      min-height: ptrm(380);
+    }
+
+    @include mobile {
+      min-height: ptrm(300);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__stats {
+    display: grid;
+    gap: ptrm(44);
+
+    @include tablet {
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: ptrm(22);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    gap: ptrm(24);
+
+    @include tablet {
+      gap: ptrm(14);
+    }
+  }
+
+  &__stat-icon {
+    flex: 0 0 auto;
+    color: #4D5660;
+  }
+
+  &__stat-content {
+    display: grid;
+    gap: ptrm(4);
+  }
+
+  &__stat-value {
+    color: var(--color-text);
+    font-size: ptrm(32);
+    line-height: 1;
+  }
+
+  &__stat-text {
+    color: var(--color-muted);
+    font-size: ptrm(13);
+  }
+}

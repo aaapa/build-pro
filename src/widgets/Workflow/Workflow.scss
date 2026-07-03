@@ -1,0 +1,117 @@
+.workflow {
+  padding-block: ptrm(26) ptrm(84);
+  scroll-margin-block-start: var(--section-scroll-top);
+  background-color: var(--color-section-background);
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(440);
+
+  @include tablet {
+    contain-intrinsic-size: auto ptrm(670);
+  }
+
+  @include mobile {
+    padding-block-end: ptrm(56);
+    contain-intrinsic-size: auto ptrm(1350);
+  }
+
+  &__title {
+    margin-block-start: ptrm(10);
+  }
+
+  &__list {
+    margin-block-start: ptrm(54);
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    position: relative;
+    counter-reset: workflow-step;
+
+    @include tablet {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: ptrm(34) ptrm(20);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: ptrm(26);
+    }
+
+    &::before {
+      content: "";
+      height: ptrm(1);
+      position: absolute;
+      top: ptrm(41);
+      right: ptrm(85);
+      left: ptrm(85);
+      background-color: var(--color-line);
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    padding-inline: ptrm(12);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    counter-increment: workflow-step;
+
+    @include mobile {
+      align-items: start;
+      padding: ptrm(20);
+      text-align: left;
+      border-radius: ptrm(6);
+      background-color: #F3F4F2;
+    }
+
+    &::before {
+      content: counter(workflow-step, decimal-leading-zero);
+      margin-block-start: ptrm(20);
+      color: var(--color-text);
+      font-size: ptrm(14);
+      font-weight: bold;
+      order: 1;
+    }
+  }
+
+  &__icon-wrapper {
+    @include square(ptrm(82));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #515A64;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: var(--color-light);
+    box-shadow: ptrm(0) ptrm(14) ptrm(34) rgba(18, 24, 30, 0.08);
+    order: 0;
+
+    @include mobile {
+      @include square(ptrm(62));
+    }
+  }
+
+  &__item-title {
+    margin-block-start: ptrm(10);
+    font-size: ptrm(16);
+    font-weight: bold;
+    order: 2;
+  }
+
+  &__text {
+    max-width: ptrm(180);
+    margin-block-start: ptrm(10);
+    color: var(--color-muted);
+    font-size: ptrm(13);
+    line-height: 1.45;
+    order: 3;
+
+    @include mobile {
+      max-width: none;
+    }
+  }
+}

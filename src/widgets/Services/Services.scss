@@ -1,0 +1,111 @@
+.services {
+  padding-block: ptrm(24) ptrm(72);
+  scroll-margin-block-start: var(--section-scroll-top);
+  background-color: var(--color-section-background);
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(660);
+
+  @include tablet {
+    contain-intrinsic-size: auto ptrm(1280);
+  }
+
+  @include mobile {
+    padding-block-end: ptrm(56);
+    contain-intrinsic-size: auto ptrm(1480);
+  }
+
+  &__inner {
+    padding-block-start: ptrm(46);
+    border-block-start: ptrm(1) solid var(--color-line);
+  }
+
+  &__title {
+    margin-block-start: ptrm(10);
+  }
+
+  &__list {
+    margin-block-start: ptrm(34);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: ptrm(18);
+
+    @include tablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: ptrm(6);
+    background-color: var(--color-light);
+    box-shadow: ptrm(0) ptrm(18) ptrm(45) rgba(18, 24, 30, 0.06);
+    color: inherit;
+    @include trns;
+
+    &:active {
+      scale: var(--scale);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1.76;
+    object-fit: contain;
+    background-color: #DCE2E6;
+  }
+
+  &__card-content {
+    padding: ptrm(26);
+    display: grid;
+    align-content: start;
+    gap: ptrm(12);
+  }
+
+  &__icon {
+    color: var(--color-gold-dark);
+  }
+
+  &__card-title {
+    font-size: ptrm(18);
+    font-weight: bold;
+  }
+
+  &__card-text {
+    min-height: ptrm(44);
+    color: var(--color-muted);
+    font-size: ptrm(15);
+    line-height: 1.5;
+
+    @include mobile {
+      min-height: ptrm(0);
+    }
+  }
+
+  &__link {
+    margin-block-start: ptrm(5);
+    display: flex;
+    align-items: center;
+    gap: ptrm(8);
+    width: fit-content;
+    color: var(--color-text);
+    font-size: ptrm(14);
+    font-weight: bold;
+    @include trns;
+
+    @include hover {
+      color: var(--color-gold-dark);
+    }
+
+    &:active {
+      scale: var(--scale);
+    }
+  }
+}

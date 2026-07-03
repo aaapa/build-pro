@@ -1,0 +1,20 @@
+.title {
+  font-weight: bold;
+
+  &--small {
+    color: var(--color-gold-dark);
+    font-size: ptrm(13);
+    letter-spacing: ptrm(0.5);
+    text-transform: uppercase;
+  }
+
+  &--medium {
+    font-size: fluid(36, 28);
+    line-height: 1.08;
+  }
+
+  &--large {
+    font-size: fluid(40, 30);
+    line-height: 1.08;
+  }
+}

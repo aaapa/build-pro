@@ -1,0 +1,90 @@
+.feedback {
+  padding-block: ptrm(70);
+  color: var(--color-light);
+  scroll-margin-block-start: var(--section-scroll-top);
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(430);
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(12, 18, 25, 0.98) 0%,
+      rgba(12, 18, 25, 0.9) 36%,
+      rgba(12, 18, 25, 0.55) 68%,
+      rgba(12, 18, 25, 0.18) 100%
+    ),
+    var(--feedback-background-image);
+  background-position: center right;
+  background-size: cover;
+
+  @include tablet {
+    contain-intrinsic-size: auto ptrm(570);
+  }
+
+  @include mobile {
+    padding-block: ptrm(56);
+    contain-intrinsic-size: auto ptrm(580);
+    background-position: 62% center;
+  }
+
+  &__content {
+    max-width: ptrm(900);
+  }
+
+  &__title {
+    max-width: ptrm(650);
+  }
+
+  &__description {
+    max-width: ptrm(520);
+    margin-block-start: ptrm(18);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: ptrm(16);
+    line-height: 1.55;
+  }
+
+  &__form {
+    margin-block-start: ptrm(30);
+  }
+
+  &__fields {
+    display: flex;
+    gap: ptrm(12);
+
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+
+  &__field {
+    min-width: ptrm(220);
+    max-width: ptrm(300);
+    flex: 1 1 ptrm(240);
+
+    @include tablet {
+      min-width: 0;
+      max-width: none;
+    }
+  }
+
+  &__input {
+    min-height: ptrm(60);
+  }
+
+  &__submit {
+    min-width: ptrm(210);
+    min-height: ptrm(60);
+    flex: 0 0 auto;
+
+    @include tablet {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  &__agreement {
+    margin-block-start: ptrm(14);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: ptrm(12);
+    line-height: 1.4;
+  }
+}

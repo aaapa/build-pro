@@ -1,0 +1,85 @@
+.floating-field {
+  width: 100%;
+  position: relative;
+
+  &__control {
+    width: 100%;
+    min-height: ptrm(56);
+    padding: ptrm(21) ptrm(22) ptrm(9);
+    color: var(--color-text);
+    border: ptrm(1) solid rgba(17, 21, 27, 0.16);
+    background-color: var(--color-light);
+    font: inherit;
+    outline: none;
+    @include trns;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus {
+      border-color: var(--color-gold-dark);
+    }
+
+    &:focus + .floating-field__label,
+    &:not(:placeholder-shown) + .floating-field__label,
+    &:-webkit-autofill + .floating-field__label {
+      top: ptrm(8);
+      color: var(--color-gold-dark);
+      font-size: ptrm(11);
+      line-height: 1;
+      transform: translateY(0);
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: var(--color-text);
+      box-shadow: 0 0 0 ptrm(1000) var(--color-light) inset;
+    }
+  }
+
+  &__label {
+    max-width: calc(100% - ptrm(44));
+    position: absolute;
+    top: 50%;
+    left: ptrm(22);
+    color: rgba(17, 21, 27, 0.52);
+    font-size: ptrm(14);
+    line-height: 1.2;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transform-origin: left top;
+    @include trns;
+  }
+
+  &--dark &__control {
+    color: var(--color-light);
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.04);
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: var(--color-light);
+      box-shadow: 0 0 0 ptrm(1000) #18232D inset;
+    }
+  }
+
+  &--dark &__label {
+    color: rgba(255, 255, 255, 0.58);
+  }
+
+  &--textarea &__control {
+    min-height: ptrm(112);
+    padding-block-start: ptrm(25);
+    resize: vertical;
+  }
+
+  &--textarea &__label {
+    top: ptrm(19);
+    transform: translateY(0);
+  }
+
+  &--textarea &__control:focus + &__label,
+  &--textarea &__control:not(:placeholder-shown) + &__label,
+  &--textarea &__control:-webkit-autofill + &__label {
+    top: ptrm(8);
+  }
+}
