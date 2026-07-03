@@ -1,4 +1,4 @@
-import { Award, BadgeCheck, Coins, ShieldCheck, UserCheck } from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import './Advantages.scss';
 
@@ -6,27 +6,27 @@ const advantages = [
   {
     title: 'Опыт и компетенции',
     text: 'Более 12 лет на рынке и сотни успешных проектов',
-    Icon: Award,
+    Icon: 'award',
   },
   {
     title: 'Фиксированная цена',
     text: 'Цена в договоре не меняется и прозрачный расчет',
-    Icon: Coins,
+    Icon: 'coins',
   },
   {
     title: 'Контроль качества',
     text: 'Технический надзор на всех этапах строительства',
-    Icon: ShieldCheck,
+    Icon: 'shield-check',
   },
   {
     title: 'Гарантия и сервис',
     text: 'Гарантии до 10 лет и постгарантийное обслуживание',
-    Icon: BadgeCheck,
+    Icon: 'badge-check',
   },
   {
     title: 'Индивидуальный подход',
     text: 'Учитываем ваши пожелания и особенности участка',
-    Icon: UserCheck,
+    Icon: 'user-check',
   },
 ];
 
@@ -40,7 +40,7 @@ export const Advantages = () => {
         <ul className="advantages__list">
           {advantages.map(({ title, text, Icon }) => (
             <li className="advantages__item" key={title}>
-              <Icon className="advantages__icon" size={28} strokeWidth={1.55} aria-hidden="true" />
+              <SvgIcon name={Icon} className="advantages__icon" size={28} strokeWidth={1.55} />
               <div className="advantages__content">
                 <h3 className="advantages__item-title">{title}</h3>
                 <p className="advantages__text">{text}</p>

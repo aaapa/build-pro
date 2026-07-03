@@ -119,6 +119,10 @@
     min-height: inherit;
   }
 
+  &__map-placemark {
+    display: block;
+  }
+
   &__map-status {
     padding: ptrm(18);
     position: absolute;

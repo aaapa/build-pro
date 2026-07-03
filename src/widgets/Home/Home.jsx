@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import { getAssetHref } from '@/shared/lib/routing';
 import { Button } from '@/shared/ui/Button';
@@ -33,7 +33,7 @@ export const Home = ({ isScrolled }) => {
             </Button>
             <Button className="home__button" href="#feedback" variant="outline-light">
               Рассчитать стоимость
-              <ArrowRight size={16} aria-hidden="true" />
+              <SvgIcon name="arrow-right" size={16} />
             </Button>
           </div>
         </div>

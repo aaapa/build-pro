@@ -1,4 +1,4 @@
-import { ArrowRight, Home, PaintRoller, Ruler } from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import { getAssetHref } from '@/shared/lib/routing';
 
@@ -10,21 +10,21 @@ const services = [
     text: 'Строим частные дома, коттеджи и таунхаусы под ключ',
     image: '/images/services/services-construction.webp',
     alt: 'Современный частный дом вечером',
-    Icon: Home,
+    Icon: 'home',
   },
   {
     title: 'Проектирование',
     text: 'Разрабатываем индивидуальные архитектурные и инженерные проекты',
     image: '/images/services/services-design.webp',
     alt: 'Современный дом с панорамным остеклением',
-    Icon: Ruler,
+    Icon: 'ruler',
   },
   {
     title: 'Ремонт и отделка',
     text: 'Выполняем внутреннюю и внешнюю отделку любой сложности',
     image: '/images/services/services-renovation.webp',
     alt: 'Светлая гостиная в современном доме',
-    Icon: PaintRoller,
+    Icon: 'paint-roller',
   },
 ];
 
@@ -50,12 +50,12 @@ export const Services = () => {
                   alt={alt}
                 />
                 <div className="services__card-content">
-                  <Icon className="services__icon" size={24} strokeWidth={1.7} aria-hidden="true" />
+                  <SvgIcon name={Icon} className="services__icon" size={24} strokeWidth={1.7} />
                   <h3 className="services__card-title">{title}</h3>
                   <p className="services__card-text">{text}</p>
                   <span className="services__link">
                     Подробнее
-                    <ArrowRight size={16} aria-hidden="true" />
+                    <SvgIcon name="arrow-right" size={16} />
                   </span>
                 </div>
               </a>

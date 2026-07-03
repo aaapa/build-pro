@@ -1,4 +1,4 @@
-import { BadgeCheck, Handshake, Scale, Sparkles } from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import './Values.scss';
 
@@ -6,22 +6,22 @@ const values = [
   {
     title: 'Качество',
     text: 'Используем только проверенные материалы и соблюдаем технологии строительства.',
-    Icon: BadgeCheck,
+    Icon: 'badge-check',
   },
   {
     title: 'Ответственность',
     text: 'Берем на себя обязательства и всегда выполняем их в срок.',
-    Icon: Handshake,
+    Icon: 'handshake',
   },
   {
     title: 'Честность',
     text: 'Прозрачные договоры, фиксированные сметы без скрытых платежей.',
-    Icon: Scale,
+    Icon: 'scale',
   },
   {
     title: 'Клиентоориентированность',
     text: 'Учитываем пожелания заказчика и сопровождаем на каждом этапе.',
-    Icon: Sparkles,
+    Icon: 'sparkles',
   },
 ];
 
@@ -39,7 +39,7 @@ export const Values = () => {
         <ul className="values__list">
           {values.map(({ title, text, Icon }) => (
             <li className="values__item" key={title}>
-              <Icon className="values__icon" size={34} strokeWidth={1.55} aria-hidden="true" />
+              <SvgIcon name={Icon} className="values__icon" size={34} strokeWidth={1.55} />
               <h3 className="values__item-title">{title}</h3>
               <p className="values__text">{text}</p>
             </li>

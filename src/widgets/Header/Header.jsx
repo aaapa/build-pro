@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Phone } from 'lucide-react';
+
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import { Button } from '@/shared/ui/Button';
 import { Logo } from '@/shared/ui/Logo';
@@ -109,7 +110,7 @@ export const Header = ({
 
         <div className="header__contacts">
           <a className="header__phone" href="tel:+74951234567">
-            <Phone size={16} aria-hidden="true" />
+            <SvgIcon name="phone" size={16} />
             <span>+7 (495) 123-45-67</span>
           </a>
           <Button className="header__button" href={feedbackHref} variant="outline-light">

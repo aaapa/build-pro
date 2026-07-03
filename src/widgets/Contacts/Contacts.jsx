@@ -1,21 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  CalendarDays,
-  Car,
-  Coffee,
-  Mail,
-  MapPin,
-  MessageSquareText,
-  ParkingCircle,
-  Phone,
-  Send,
-  UsersRound,
-} from 'lucide-react';
+
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 import IMask from 'imask';
 
 import { Button } from '@/shared/ui/Button';
 import { Checkbox } from '@/shared/ui/Checkbox';
 import { FloatingField } from '@/shared/ui/FloatingField';
+import { getAssetHref } from '@/shared/lib/routing';
 
 import './Contacts.scss';
 
@@ -24,12 +15,6 @@ const yandexMapsScriptAddress = 'https://api-maps.yandex.ru/2.1/?apikey=093aa711
 const yandexMapsOfficeHref = 'https://yandex.ru/maps/-/CTefNT9K';
 const officeAddress = 'Москва, улица Строителей, 15, офис 305';
 const fallbackOfficeCoordinates = [55.6858, 37.5345];
-const contactsPlacemarkImage = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-  <svg width="52" height="64" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M26 62C26 62 48 38.8 48 24.8C48 11.1 38.15 2 26 2C13.85 2 4 11.1 4 24.8C4 38.8 26 62 26 62Z" fill="#101820"/>
-    <path d="M26 34.5C31.25 34.5 35.5 30.25 35.5 25C35.5 19.75 31.25 15.5 26 15.5C20.75 15.5 16.5 19.75 16.5 25C16.5 30.25 20.75 34.5 26 34.5Z" fill="#F6C238"/>
-  </svg>
-`)}`;
 
 const contactCards = [
   {
@@ -37,27 +22,27 @@ const contactCards = [
     value: '+7 (495) 123-45-67',
     text: 'Пн–Вс: 9:00 – 20:00',
     href: 'tel:+74951234567',
-    Icon: Phone,
+    Icon: 'phone',
   },
   {
     title: 'E-mail',
     value: 'info@buildpro.ru',
     text: 'Ответим в течение 15 минут',
     href: 'mailto:info@buildpro.ru',
-    Icon: Mail,
+    Icon: 'mail',
   },
   {
     title: 'Адрес офиса',
     value: 'г. Москва, ул. Строителей, 15, офис 305',
     text: 'Пн–Пт: 9:00 – 18:00',
     href: yandexMapsOfficeHref,
-    Icon: MapPin,
+    Icon: 'map-pin',
   },
   {
     title: 'Онлайн-заявка',
     value: 'Оставьте заявку на сайте в любое время',
     text: 'Мы свяжемся с вами',
-    Icon: CalendarDays,
+    Icon: 'calendar-days',
   },
 ];
 
@@ -65,22 +50,22 @@ const officeBenefits = [
   {
     title: 'Удобное расположение',
     text: '5 минут от метро Университет и удобный подъезд на автомобиле',
-    Icon: Car,
+    Icon: 'car',
   },
   {
     title: 'Парковка',
     text: 'Бесплатная парковка для наших клиентов',
-    Icon: ParkingCircle,
+    Icon: 'parking-circle',
   },
   {
     title: 'Комфортная зона',
     text: 'Уютная переговорная и вкусный кофе',
-    Icon: Coffee,
+    Icon: 'coffee',
   },
   {
     title: 'Индивидуальный подход',
     text: 'Персональный менеджер для вашего проекта',
-    Icon: UsersRound,
+    Icon: 'users-round',
   },
 ];
 
@@ -168,15 +153,24 @@ const ContactsMap = () => {
           yandexMapDisablePoiInteractivity: true,
         });
 
+        const officePlacemarkSpriteHref = getAssetHref('/icons/sprite.svg#map-marker');
+        const officePlacemarkLayout = yandexMaps.templateLayoutFactory.createClass(`
+          <svg class="contacts__map-placemark" width="52" height="64" viewBox="0 0 52 64" aria-hidden="true" focusable="false">
+            <use href="${officePlacemarkSpriteHref}"></use>
+          </svg>
+        `);
+
         const officePlacemark = new yandexMaps.Placemark(officeCoordinates, {
           hintContent: 'BuildPro',
           balloonContentHeader: 'BuildPro',
           balloonContentBody: officeAddress,
         }, {
-          iconLayout: 'default#image',
-          iconImageHref: contactsPlacemarkImage,
-          iconImageSize: [52, 64],
-          iconImageOffset: [-26, -61],
+          iconLayout: officePlacemarkLayout,
+          iconOffset: [-26, -61],
+          iconShape: {
+            type: 'Rectangle',
+            coordinates: [[-26, -61], [26, 3]],
+          },
         });
 
         mapInstance.geoObjects.add(officePlacemark);
@@ -262,7 +256,7 @@ export const Contacts = () => {
           {contactCards.map(({ href, Icon, text, title, value }) => (
             <li className="contacts__card" key={title}>
               <span className="contacts__icon-wrapper">
-                <Icon className="contacts__icon" size={25} strokeWidth={1.6} aria-hidden="true" />
+                <SvgIcon name={Icon} className="contacts__icon" size={25} strokeWidth={1.6} />
               </span>
               <div className="contacts__card-content">
                 <h3 className="contacts__card-title">{title}</h3>
@@ -354,7 +348,7 @@ export const Contacts = () => {
 
               <Button className="contacts__submit" type="submit" variant="main">
                 Отправить сообщение
-                <Send size={16} aria-hidden="true" />
+                <SvgIcon name="send" size={16} />
               </Button>
             </form>
           </section>
@@ -370,7 +364,7 @@ export const Contacts = () => {
           <ul className="contacts__benefits">
             {officeBenefits.map(({ Icon, text, title }) => (
               <li className="contacts__benefit" key={title}>
-                <Icon className="contacts__benefit-icon" size={32} strokeWidth={1.55} aria-hidden="true" />
+                <SvgIcon name={Icon} className="contacts__benefit-icon" size={32} strokeWidth={1.55} />
                 <h3 className="contacts__benefit-title">{title}</h3>
                 <p className="contacts__benefit-text">{text}</p>
               </li>

@@ -1,4 +1,4 @@
-import { ArrowRight, Award, Home, ShieldCheck, UsersRound } from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import { getAssetHref, getPageHref } from '@/shared/lib/routing';
 import { Button } from '@/shared/ui/Button';
@@ -6,10 +6,10 @@ import { Button } from '@/shared/ui/Button';
 import './Intro.scss';
 
 const aboutStats = [
-  { value: '12+', text: 'лет на рынке', Icon: ShieldCheck },
-  { value: '250+', text: 'построенных домов', Icon: Home },
-  { value: '98%', text: 'довольных клиентов', Icon: UsersRound },
-  { value: '10 лет', text: 'гарантия на работы', Icon: Award },
+  { value: '12+', text: 'лет на рынке', Icon: 'shield-check' },
+  { value: '250+', text: 'построенных домов', Icon: 'home' },
+  { value: '98%', text: 'довольных клиентов', Icon: 'users-round' },
+  { value: '10 лет', text: 'гарантия на работы', Icon: 'award' },
 ];
 
 export const Intro = () => {
@@ -34,7 +34,7 @@ export const Intro = () => {
           </div>
           <Button className="intro__button" href={getPageHref('/services')} variant="dark">
             Подробнее о наших услугах
-            <ArrowRight size={16} aria-hidden="true" />
+            <SvgIcon name="arrow-right" size={16} />
           </Button>
         </div>
 
@@ -53,7 +53,7 @@ export const Intro = () => {
         <ul className="intro__stats">
           {aboutStats.map(({ value, text, Icon }) => (
             <li className="intro__stat" key={text}>
-              <Icon className="intro__stat-icon" size={34} strokeWidth={1.55} aria-hidden="true" />
+              <SvgIcon name={Icon} className="intro__stat-icon" size={34} strokeWidth={1.55} />
               <div className="intro__stat-content">
                 <strong className="intro__stat-value">{value}</strong>
                 <span className="intro__stat-text">{text}</span>

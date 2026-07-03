@@ -1,13 +1,13 @@
-import { ClipboardCheck, FileSignature, Hammer, MapPinned, PhoneCall } from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import './Workflow.scss';
 
 const workflowSteps = [
-  { title: 'Заявка', text: 'Вы оставляете заявку на сайте или по телефону', Icon: PhoneCall },
-  { title: 'Консультация', text: 'Мы обсуждаем ваш проект и рассчитываем стоимость', Icon: MapPinned },
-  { title: 'Договор', text: 'Заключаем договор и приступаем к работе', Icon: FileSignature },
-  { title: 'Строительство', text: 'Выполняем работы строго по плану и срокам', Icon: Hammer },
-  { title: 'Сдача объекта', text: 'Сдаем готовый дом и сопровождаем проект', Icon: ClipboardCheck },
+  { title: 'Заявка', text: 'Вы оставляете заявку на сайте или по телефону', Icon: 'phone-call' },
+  { title: 'Консультация', text: 'Мы обсуждаем ваш проект и рассчитываем стоимость', Icon: 'map-pinned' },
+  { title: 'Договор', text: 'Заключаем договор и приступаем к работе', Icon: 'file-signature' },
+  { title: 'Строительство', text: 'Выполняем работы строго по плану и срокам', Icon: 'hammer' },
+  { title: 'Сдача объекта', text: 'Сдаем готовый дом и сопровождаем проект', Icon: 'clipboard-check' },
 ];
 
 export const Workflow = () => {
@@ -22,7 +22,7 @@ export const Workflow = () => {
           {workflowSteps.map(({ title, text, Icon }, index) => (
             <li className="workflow__item" key={index}>
               <span className="workflow__icon-wrapper">
-                <Icon className="workflow__icon" size={30} strokeWidth={1.6} aria-hidden="true" />
+                <SvgIcon name={Icon} className="workflow__icon" size={30} strokeWidth={1.6} />
               </span>
               <h3 className="workflow__item-title">{title}</h3>
               <p className="workflow__text">{text}</p>

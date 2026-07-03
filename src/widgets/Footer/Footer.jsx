@@ -1,5 +1,5 @@
 import Tippy from '@tippyjs/react';
-import { Clock, Instagram, Mail, MapPin, MessageCircle, Phone, Send } from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import { getPageHref } from '@/shared/lib/routing';
 import { Logo } from '@/shared/ui/Logo';
@@ -51,7 +51,7 @@ export const Footer = ({
                 <li className="footer__socials-item">
                   <Tippy content="Telegram">
                     <a className="footer__social-link" href="#!">
-                      <Send size={17} aria-hidden="true" />
+                      <SvgIcon name="send" size={17} />
                       <span className="visually-hidden">Telegram</span>
                     </a>
                   </Tippy>
@@ -59,7 +59,7 @@ export const Footer = ({
                 <li className="footer__socials-item">
                   <Tippy content="Instagram">
                     <a className="footer__social-link" href="#!">
-                      <Instagram size={17} aria-hidden="true" />
+                      <SvgIcon name="instagram" size={17} />
                       <span className="visually-hidden">Instagram</span>
                     </a>
                   </Tippy>
@@ -104,31 +104,31 @@ export const Footer = ({
               <ul className="footer__list">
                 <li className="footer__list-item">
                   <a className="footer__contact-link" href="tel:+74951234567">
-                    <Phone size={16} aria-hidden="true" />
+                    <SvgIcon name="phone" size={16} />
                     +7 (495) 123-45-67
                   </a>
                 </li>
                 <li className="footer__list-item">
                   <a className="footer__contact-link" href="mailto:info@buildpro.ru">
-                    <Mail size={16} aria-hidden="true" />
+                    <SvgIcon name="mail" size={16} />
                     info@buildpro.ru
                   </a>
                 </li>
                 <li className="footer__list-item">
                   <a className="footer__contact-link" href="https://yandex.ru/maps/-/CTefNT9K">
-                    <MapPin size={16} aria-hidden="true" />
+                    <SvgIcon name="map-pin" size={16} />
                     г. Москва, ул. Строителей, 15
                   </a>
                 </li>
                 <li className="footer__list-item">
                   <span className="footer__contact-link">
-                    <Clock size={16} aria-hidden="true" />
+                    <SvgIcon name="clock" size={16} />
                     Пн–Вс 9:00–20:00
                   </span>
                 </li>
                 <li className="footer__list-item">
                   <a className="footer__contact-link" href="#feedback">
-                    <MessageCircle size={16} aria-hidden="true" />
+                    <SvgIcon name="message-circle" size={16} />
                     Консультация по проекту
                   </a>
                 </li>
@@ -138,7 +138,7 @@ export const Footer = ({
         </div>
 
         <div className="footer__bottom">
-          <p>© 2024 BuildPro. Все права защищены.</p>
+          <p>© 2026 BuildPro. Все права защищены.</p>
           <a className="footer__policy" href="#privacy" id="privacy">
             Политика конфиденциальности
           </a>

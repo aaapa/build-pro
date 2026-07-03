@@ -1,14 +1,4 @@
-import {
-  CalendarCheck,
-  ClipboardCheck,
-  Coins,
-  FileSignature,
-  Hammer,
-  Home,
-  MessageCircle,
-  ShieldCheck,
-  UserCheck,
-} from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import { getAssetHref } from '@/shared/lib/routing';
 
@@ -21,7 +11,7 @@ const stageItems = [
     text: 'Вы оставляете заявку на сайте или звоните нам. Мы консультируем вас и обсуждаем ваши пожелания.',
     image: '/images/stages/stages-step-1.webp',
     alt: 'Обсуждение проекта дома за столом с чертежами',
-    Icon: MessageCircle,
+    Icon: 'message-circle',
   },
   {
     number: '02',
@@ -29,7 +19,7 @@ const stageItems = [
     text: 'Разрабатываем индивидуальный проект дома, учитывая все ваши требования и особенности участка.',
     image: '/images/stages/stages-step-2.webp',
     alt: 'Архитектурные чертежи с ручкой и рулонами планов',
-    Icon: ClipboardCheck,
+    Icon: 'clipboard-check',
   },
   {
     number: '03',
@@ -37,7 +27,7 @@ const stageItems = [
     text: 'Составляем смету и заключаем договор с фиксированными сроками и стоимостью. Никаких скрытых платежей.',
     image: '/images/stages/stages-step-3.webp',
     alt: 'Подписание договора на строительство дома',
-    Icon: FileSignature,
+    Icon: 'file-signature',
   },
   {
     number: '04',
@@ -45,7 +35,7 @@ const stageItems = [
     text: 'Выполняем все строительные работы строго по проекту и в соответствии с нормами и стандартами.',
     image: '/images/stages/stages-step-4.webp',
     alt: 'Современный дом в процессе строительства со строительными лесами',
-    Icon: Hammer,
+    Icon: 'hammer',
   },
   {
     number: '05',
@@ -53,7 +43,7 @@ const stageItems = [
     text: 'Проводим финальную проверку и сдаем вам готовый дом. Вы получаете гарантию на все выполненные работы.',
     image: '/images/stages/stages-step-5.webp',
     alt: 'Готовый современный дом с ландшафтным участком вечером',
-    Icon: Home,
+    Icon: 'home',
   },
 ];
 
@@ -61,22 +51,22 @@ const stageBenefits = [
   {
     title: 'Гарантия качества',
     text: 'Гарантия на все виды работ до 10 лет',
-    Icon: ShieldCheck,
+    Icon: 'shield-check',
   },
   {
     title: 'Соблюдение сроков',
     text: 'Строгое соблюдение сроков, указанных в договоре',
-    Icon: CalendarCheck,
+    Icon: 'calendar-check',
   },
   {
     title: 'Фиксированная стоимость',
     text: 'Стоимость не меняется в процессе строительства',
-    Icon: Coins,
+    Icon: 'coins',
   },
   {
     title: 'Личный менеджер',
     text: 'Сопровождение на всех этапах строительства',
-    Icon: UserCheck,
+    Icon: 'user-check',
   },
 ];
 
@@ -98,7 +88,7 @@ export const Stages = () => {
             <li className="stages__item" key={number}>
               <span className="stages__number">{number}</span>
               <span className="stages__icon-wrapper">
-                <Icon className="stages__icon" size={34} strokeWidth={1.55} aria-hidden="true" />
+                <SvgIcon name={Icon} className="stages__icon" size={34} strokeWidth={1.55} />
               </span>
               <div className="stages__content">
                 <h3 className="stages__item-title">{title}</h3>
@@ -124,7 +114,7 @@ export const Stages = () => {
           <ul className="stages__benefits">
             {stageBenefits.map(({ Icon, text, title }) => (
               <li className="stages__benefit" key={title}>
-                <Icon className="stages__benefit-icon" size={32} strokeWidth={1.55} aria-hidden="true" />
+                <SvgIcon name={Icon} className="stages__benefit-icon" size={32} strokeWidth={1.55} />
                 <h4 className="stages__benefit-title">{title}</h4>
                 <p className="stages__benefit-text">{text}</p>
               </li>

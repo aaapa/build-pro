@@ -1,4 +1,4 @@
-import { Play } from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { getAssetHref } from '@/shared/lib/routing';
@@ -120,7 +120,7 @@ export const About = () => {
             style={{ transform: videoButtonTransform }}
           >
             <span className="about__video-icon">
-              <Play size={22} fill="currentColor" aria-hidden="true" />
+              <SvgIcon name="play" size={22} fill="currentColor" />
             </span>
             <span>Смотреть видео о компании</span>
           </button>

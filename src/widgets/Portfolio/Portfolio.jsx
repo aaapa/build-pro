@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
-import { ArrowRight, Bath, BedDouble, Calculator, ChevronRight, Layers, MapPin } from 'lucide-react';
+
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import { Button } from '@/shared/ui/Button';
 import { getAssetHref } from '@/shared/lib/routing';
@@ -322,7 +323,7 @@ export const Portfolio = () => {
             })}
           </ul>
           <Button className="portfolio__calculate" href="#feedback" variant="outline-dark">
-            <Calculator size={18} aria-hidden="true" />
+            <SvgIcon name="calculator" size={18} />
             Рассчитать стоимость
           </Button>
         </div>
@@ -346,27 +347,27 @@ export const Portfolio = () => {
                 <span className="portfolio__content">
                   <span className="portfolio__card-title">{project.title}</span>
                   <span className="portfolio__location">
-                    <MapPin className="portfolio__location-icon" size={14} strokeWidth={1.8} aria-hidden="true" />
+                    <SvgIcon name="map-pin" className="portfolio__location-icon" size={14} strokeWidth={1.8} />
                     {project.location}
                   </span>
                   <span className="portfolio__text">{project.text}</span>
                   <span className="portfolio__features">
                     <span className="portfolio__feature">
-                      <BedDouble size={16} strokeWidth={1.65} aria-hidden="true" />
+                      <SvgIcon name="bed-double" size={16} strokeWidth={1.65} />
                       {project.bedrooms}
                     </span>
                     <span className="portfolio__feature">
-                      <Bath size={16} strokeWidth={1.65} aria-hidden="true" />
+                      <SvgIcon name="bath" size={16} strokeWidth={1.65} />
                       {project.bathrooms}
                     </span>
                     <span className="portfolio__feature">
-                      <Layers size={16} strokeWidth={1.65} aria-hidden="true" />
+                      <SvgIcon name="layers" size={16} strokeWidth={1.65} />
                       {project.floors}
                     </span>
                   </span>
                   <span className="portfolio__link">
                     Смотреть проект
-                    <ArrowRight size={16} aria-hidden="true" />
+                    <SvgIcon name="arrow-right" size={16} />
                   </span>
                 </span>
               </a>
@@ -403,7 +404,7 @@ export const Portfolio = () => {
                   disabled={currentPage >= totalPages}
                   onClick={handleNextPageClick}
                 >
-                  <ChevronRight size={16} aria-hidden="true" />
+                  <SvgIcon name="chevron-right" size={16} />
                   <span className="visually-hidden">Следующая страница</span>
                 </button>
               </li>

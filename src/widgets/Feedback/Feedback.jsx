@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Send } from 'lucide-react';
+
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 import IMask from 'imask';
 
 import { Button } from '@/shared/ui/Button';
@@ -88,7 +89,7 @@ export const Feedback = ({
 
               <Button className="feedback__submit" type="submit" variant="main">
                 Отправить заявку
-                <Send size={16} aria-hidden="true" />
+                <SvgIcon name="send" size={16} />
               </Button>
             </div>
 

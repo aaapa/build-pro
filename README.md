@@ -13,6 +13,32 @@
 - Карта сайта: https://aaapa.github.io/build-pro/sitemap.xml
 - Превью сайта: https://aaapa.github.io/build-pro/site-preview.png
 
+## Скриншоты
+
+### Главная
+
+![Главная страница BuildPro](public/screenshots/home-full.jpg)
+
+### О компании
+
+![Страница о компании BuildPro](public/screenshots/about-full.jpg)
+
+### Услуги
+
+![Страница услуг BuildPro](public/screenshots/services-full.jpg)
+
+### Проекты
+
+![Страница проектов BuildPro](public/screenshots/projects-full.jpg)
+
+### Этапы
+
+![Страница этапов BuildPro](public/screenshots/stages-full.jpg)
+
+### Контакты
+
+![Страница контактов BuildPro](public/screenshots/contacts-full.jpg)
+
 ## Мета
 
 - Canonical: https://aaapa.github.io/build-pro/

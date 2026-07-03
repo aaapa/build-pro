@@ -1,13 +1,4 @@
-import {
-  ArrowRight,
-  CheckCircle,
-  ClipboardCheck,
-  Home,
-  PaintRoller,
-  Settings,
-  TreePine,
-  Wrench,
-} from 'lucide-react';
+import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 import { getAssetHref } from '@/shared/lib/routing';
 
@@ -19,7 +10,7 @@ const catalogItems = [
     text: 'Строим частные дома и коттеджи под ключ с гарантией качества и соблюдением сроков.',
     image: '/images/services/services-card-1.webp',
     alt: 'Современный дом с вечерней подсветкой',
-    Icon: Home,
+    Icon: 'home',
     features: ['Все этапы строительства', 'Фиксированная стоимость', 'Гарантия до 10 лет'],
   },
   {
@@ -27,7 +18,7 @@ const catalogItems = [
     text: 'Разрабатываем индивидуальные проекты домов и коттеджей с учетом ваших пожеланий.',
     image: '/images/services/services-card-2.webp',
     alt: 'Архитектурные чертежи с ручкой',
-    Icon: ClipboardCheck,
+    Icon: 'clipboard-check',
     features: ['Индивидуальные решения', '3D-визуализация', 'Согласование и документация'],
   },
   {
@@ -35,7 +26,7 @@ const catalogItems = [
     text: 'Выполняем внутреннюю и внешнюю отделку любой сложности.',
     image: '/images/services/services-card-3.webp',
     alt: 'Гостиная современного дома',
-    Icon: PaintRoller,
+    Icon: 'paint-roller',
     features: ['Черновая и чистовая отделка', 'Дизайн интерьера', 'Авторский надзор'],
   },
   {
@@ -43,7 +34,7 @@ const catalogItems = [
     text: 'Проектируем и монтируем инженерные системы для комфортной жизни.',
     image: '/images/services/services-card-4.webp',
     alt: 'Строительные чертежи с каской',
-    Icon: Settings,
+    Icon: 'settings',
     features: ['Отопление и вентиляция', 'Водоснабжение и канализация', 'Электроснабжение и слаботочные сети'],
   },
   {
@@ -51,7 +42,7 @@ const catalogItems = [
     text: 'Комплексное благоустройство и озеленение участков любой сложности.',
     image: '/images/services/services-card-5.webp',
     alt: 'Ландшафтный участок с дорожками и подсветкой',
-    Icon: TreePine,
+    Icon: 'tree-pine',
     features: ['Ландшафтный дизайн', 'Дорожки и площадки', 'Освещение и полив'],
   },
   {
@@ -59,7 +50,7 @@ const catalogItems = [
     text: 'Обновим и модернизируем ваш дом, сделаем его надежным и современным.',
     image: '/images/services/services-card-6.webp',
     alt: 'Современный двухэтажный дом',
-    Icon: Wrench,
+    Icon: 'wrench',
     features: ['Реконструкция зданий', 'Утепление и фасады', 'Пристройки и надстройки'],
   },
 ];
@@ -90,7 +81,7 @@ export const Catalog = () => {
                     alt={alt}
                   />
                   <span className="catalog__icon-wrapper">
-                    <Icon className="catalog__icon" size={34} strokeWidth={1.55} aria-hidden="true" />
+                    <SvgIcon name={Icon} className="catalog__icon" size={34} strokeWidth={1.55} />
                   </span>
                 </div>
                 <div className="catalog__content">
@@ -99,14 +90,14 @@ export const Catalog = () => {
                   <ul className="catalog__features">
                     {features.map((feature) => (
                       <li className="catalog__feature" key={feature}>
-                        <CheckCircle className="catalog__feature-icon" size={16} strokeWidth={1.8} aria-hidden="true" />
+                        <SvgIcon name="check-circle" className="catalog__feature-icon" size={16} strokeWidth={1.8} />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <a className="catalog__link" href="#feedback">
                     Подробнее
-                    <ArrowRight size={16} aria-hidden="true" />
+                    <SvgIcon name="arrow-right" size={16} />
                   </a>
                 </div>
               </article>
