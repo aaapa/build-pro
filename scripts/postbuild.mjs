@@ -6,7 +6,7 @@ const distDirectory = resolve(rootDirectory, 'dist');
 const indexPath = resolve(distDirectory, 'index.html');
 const fallbackPath = resolve(distDirectory, '404.html');
 const publicFontsDirectory = resolve(rootDirectory, 'public', 'fonts');
-const distFontsDirectory = resolve(distDirectory, 'assets', 'fonts');
+const distFontsDirectory = resolve(distDirectory, 'fonts');
 
 if (existsSync(indexPath)) {
   copyFileSync(indexPath, fallbackPath);
